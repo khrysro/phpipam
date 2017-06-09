@@ -12,6 +12,7 @@ RUN apt-get update && \
 
 # Configure apache and required PHP modules 
 RUN docker-php-ext-configure mysqli --with-mysqli=mysqlnd && \
+	docker-php-ext-install pcntl && \
 	docker-php-ext-install mysqli && \
 	docker-php-ext-install pdo_mysql && \
 	docker-php-ext-install gettext && \ 
