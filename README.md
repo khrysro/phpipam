@@ -24,7 +24,7 @@ Here, we store data on the host system under `/my_dir/phpipam` and use a specifi
 ### Phpipam 
 
 ```bash
-$ docker run -ti -d -p 80:80 --name ipam --link phpipam-mysql:mysql khrysro/phpipam
+$ docker run -ti -d -p 80:80 --name ipam --link phpipam-mysql:mysql khrysro/phpipam-docker
 
 We are linking the two containers and expose the HTTP port. 
 
@@ -74,7 +74,7 @@ services:
   ipam:
     depends_on:
       - mysql
-    image: khrysro/phpipam
+    image: khrysro/phpipam-docker
     environment:
       - MYSQL_ENV_MYSQL_ROOT_PASSWORD=my-secret-pw
     ports:
