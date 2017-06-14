@@ -33,7 +33,7 @@ RUN	tar -xzf /tmp/${PHPIPAM_VERSION}.tar.gz -C ${WEB_REPO}/ --strip-components=1
 
 # Use system environment variables into config.php
 RUN cp ${WEB_REPO}/config.dist.php ${WEB_REPO}/config.php && \
-    sed -i -e "s/\['host'\] = \"localhost\"/\['host'\] = \"mysql\"/" \
+    sed -i -e "s/localhost/mysql/" \
     -e "s/\['user'\] = \"phpipam\"/\['user'\] = \"root\"/" \
     -e "s/\['pass'\] = \"phpipamadmin\"/\['pass'\] = getenv(\"MYSQL_ENV_MYSQL_ROOT_PASSWORD\")/" \
 	${WEB_REPO}/config.php
