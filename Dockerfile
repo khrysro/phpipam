@@ -2,12 +2,13 @@ FROM php:5.6-apache
 MAINTAINER KhrysRo
 
 ENV PHPIPAM_SOURCE https://github.com/phpipam/phpipam/archive/
-ENV PHPIPAM_VERSION 1.3
+ENV PHPIPAM_VERSION 1.3.1
 ENV WEB_REPO /var/www/html
 
 # Install required deb packages
 RUN apt-get update && \
-	apt-get install -y git php5-snmp php-pear php5-curl php5-gd php5-mysql php5-json php5-gmp php5-mcrypt php5-ldap libpng-dev libgmp-dev libmcrypt-dev && \
+	apt-get install -y git php5-snmp php-pear php5-curl php5-gd php5-mysql php5-json \
+	php5-gmp php5-mcrypt php5-ldap libpng-dev libgmp-dev libmcrypt-dev && \
 	rm -rf /var/lib/apt/lists/*
 
 # Configure apache and required PHP modules 
