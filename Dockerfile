@@ -9,10 +9,13 @@ ENV WEB_REPO /var/www/html
 RUN apt-get update 
 
 RUN apt-get -y remove aptitude libcwidget3 libsigc++-2.0-0c2a
-
-
-RUN apt-get install -y git php5-snmp php-pear php5-curl php5-gd php5-mysql \
-	php5-json php5-gmp php5-mcrypt php5-ldap libpng-dev libgmp-dev libmcrypt-dev 
+RUN apt-get install -y php-pear
+RUN apt-get install -y php5-curl
+RUN apt-get install -y git php5-snmp 
+RUN apt-get install -y php5-gd php5-mysql 
+RUN apt-get install -y 	php5-json php5-gmp php5-mcrypt 
+RUN apt-get install -y php5-ldap libpng-dev 
+RUN apt-get install -y libgmp-dev libmcrypt-dev 
 RUN rm -rf /var/lib/apt/lists/*
 
 # Configure apache and required PHP modules 
