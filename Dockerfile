@@ -13,8 +13,8 @@ ENV WEB_REPO /var/www/html
 RUN sed -i /etc/apt/sources.list -e 's/$/ non-free'/ && \
     apt-get update && apt-get -y upgrade && \
     rm /etc/apt/preferences.d/no-debian-php && \
-    apt-get install -y libcurl4-gnutls-dev libgmp-dev libmcrypt-dev libpng12-dev libfreetype6-dev libjpeg-dev libpng-dev libldap2-dev libsnmp-dev snmp-mibs-downloader && \
-    rm -rf /var/lib/apt/lists/*
+    apt-get install -y libcurl4-gnutls-dev libgmp-dev libmcrypt-dev libpng12-dev libfreetype6-dev libjpeg-dev libpng-dev libldap2-dev libsnmp-dev snmp-mibs-downloader 
+RUN rm -rf /var/lib/apt/lists/*
 
 # Install required packages and files required for snmp
 RUN curl -s ftp://ftp.cisco.com/pub/mibs/v2/CISCO-SMI.my -o /var/lib/mibs/ietf/CISCO-SMI.txt && \
@@ -59,7 +59,7 @@ RUN cp ${WEB_REPO}/config.dist.php ${WEB_REPO}/config.php && \
     chown www-data /var/www/html/app/admin/import-export/upload && \
     sed -i -e "s/\['host'\] = 'localhost'/\['host'\] = getenv(\"MYSQL_ENV_MYSQL_HOST\") ?: \"mysql\"/" \
     -e "s/\['user'\] = 'phpipam'/\['user'\] = getenv(\"MYSQL_ENV_MYSQL_USER\") ?: \"root\"/" \
-    -e "s/\['pass'\] = 'phpipamadmin'/\['pass'\] = getenv(\"MYSQL_ENV_MYSQL_PASSWORD\")/" \
+    -e "s/\['pass'\] = 'phpipamadmin'/\['pass'\] = getenv(\"MYSQL_ENV_MYSQL_ROOT_PASSWORD\")/" \
     -e "s/\['port'\] = 3306;/\['port'\] = 3306;\n\n\$password_file = getenv(\"MYSQL_ENV_MYSQL_PASSWORD_FILE\");\nif(file_exists(\$password_file))\n\$db\['pass'\] = preg_replace(\"\/\\\\s+\/\", \"\", file_get_contents(\$password_file));/" \
     ${WEB_REPO}/config.php
 
