@@ -1,5 +1,6 @@
 FROM php:5.6-apache
 MAINTAINER KhrysRo
+
 ENV PHPIPAM_SOURCE https://github.com/phpipam/phpipam/
 ENV PHPIPAM_VERSION 1.3.1
 ENV PHPMAILER_SOURCE https://github.com/PHPMailer/PHPMailer/
@@ -61,7 +62,6 @@ RUN cp ${WEB_REPO}/config.dist.php ${WEB_REPO}/config.php && \
     -e "s/\['pass'\] = 'phpipamadmin'/\['pass'\] = getenv(\"MYSQL_ENV_MYSQL_PASSWORD\")/" \
     -e "s/\['port'\] = 3306;/\['port'\] = 3306;\n\n\$password_file = getenv(\"MYSQL_ENV_MYSQL_PASSWORD_FILE\");\nif(file_exists(\$password_file))\n\$db\['pass'\] = preg_replace(\"\/\\\\s+\/\", \"\", file_get_contents(\$password_file));/" \
     ${WEB_REPO}/config.php
-
 
 EXPOSE 80
 
