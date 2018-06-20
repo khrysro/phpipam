@@ -12,17 +12,17 @@ ENV WEB_REPO /var/www/html
 # Install required deb packages
 RUN sed -i /etc/apt/sources.list -e 's/$/ non-free'/ && \apt-get update && apt-get -y upgrade && \
     rm /etc/apt/preferences.d/no-debian-php 
-RUN apt-get install -y libcurl4-gnutls-dev
-RUN apt-get install -y libgmp-dev 
-RUN apt-get install -y libmcrypt-dev 
-RUN apt-get install -y libpng12-dev 
-RUN apt-get install -y libfreetype6-dev
-RUN apt-get install -y libjpeg-dev
-RUN apt-get install -y libpng-dev
-RUN apt-get install -y libldap2-dev
-RUN apt-get install -y libsnmp-dev
-RUN apt-get install -y snmp-mibs-downloader 
-RUN rm -rf /var/lib/apt/lists/*
+RUN "apt-get install -y libcurl4-gnutls-dev"
+RUN "apt-get install -y libgmp-dev "
+RUN "apt-get install -y libmcrypt-dev "
+RUN "apt-get install -y libpng12-dev "
+RUN "apt-get install -y libfreetype6-dev"
+RUN "apt-get install -y libjpeg-dev"
+RUN "apt-get install -y libpng-dev"
+RUN "apt-get install -y libldap2-dev"
+RUN "apt-get install -y libsnmp-dev"
+RUN "apt-get install -y snmp-mibs-downloader "
+RUN "rm -rf /var/lib/apt/lists/*"
 
 # Install required packages and files required for snmp
 RUN curl -s ftp://ftp.cisco.com/pub/mibs/v2/CISCO-SMI.my -o /var/lib/mibs/ietf/CISCO-SMI.txt && \
