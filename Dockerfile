@@ -11,7 +11,7 @@ ENV WEB_REPO /var/www/html
 
 # Install required deb packages
 RUN sed -i /etc/apt/sources.list -e 's/$/ non-free'/ && \apt-get update && apt-get -y upgrade && \
-    rm /etc/apt/preferences.d/no-debian-php && \
+    rm /etc/apt/preferences.d/no-debian-php 
 RUN apt-get install -y libcurl4-gnutls-dev
 RUN apt-get install -y libgmp-dev 
 RUN apt-get install -y libmcrypt-dev 
