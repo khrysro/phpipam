@@ -11,7 +11,7 @@ ENV WEB_REPO /var/www/html
 
 # Install required deb packages
 RUN grep . /etc/apt/sources.list > /etc/apt/sources.list.1 && mv /etc/apt/sources.list.1 /etc/apt/sources.list
-RUN sed -i /etc/apt/sources.list -e 's/$/ non-free'/ && \ 
+RUN sed -i /etc/apt/sources.list -e 's/$/ non-free'/ 
 RUN apt-get update && apt-get -y upgrade && \
     rm /etc/apt/preferences.d/no-debian-php 
 RUN "apt-get install -y libcurl4-gnutls-dev"
