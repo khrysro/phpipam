@@ -18,7 +18,7 @@ RUN rm /etc/apt/preferences.d/no-debian-php
 
 RUN apt-get install -y libgmp-dev 
 RUN apt-get install -y libmcrypt-dev 
-RUN apt-get install -y libpng12-dev 
+RUN apt-get install -y libpng-dev 
 RUN apt-get install -y libfreetype6-dev
 RUN apt-get install -y libjpeg-dev
 RUN apt-get install -y libpng-dev
