@@ -28,7 +28,7 @@ RUN apt-get install -y snmp-mibs-downloader
 RUN rm -rf /var/lib/apt/lists/*
 
 # Create folders required for snmp
-RUN mkdir/var/lib/mibs/ && mkdir /var/lib/mibs/ietf/
+RUN mkdir /var/lib/mibs/ && mkdir /var/lib/mibs/ietf/
 
 # Install required packages and files required for snmp
 RUN curl -s ftp://ftp.cisco.com/pub/mibs/v2/CISCO-SMI.my -o /var/lib/mibs/ietf/CISCO-SMI.txt && \
