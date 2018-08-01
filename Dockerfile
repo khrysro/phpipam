@@ -1,20 +1,21 @@
-FROM php:5.6-apache-stretch
+FROM php:7.0.31-zts-stretch
 MAINTAINER KhrysRo
 
 ENV PHPIPAM_SOURCE https://github.com/phpipam/phpipam/
 ENV PHPIPAM_VERSION 1.3.2
 ENV PHPMAILER_SOURCE https://github.com/PHPMailer/PHPMailer/
-ENV PHPMAILER_VERSION 5.2.21
+ENV PHPMAILER_VERSION 5.2.26
 ENV PHPSAML_SOURCE https://github.com/onelogin/php-saml/
-ENV PHPSAML_VERSION 2.10.6
+ENV PHPSAML_VERSION 2.14.0
 ENV WEB_REPO /var/www/html
 
 # Install required deb packages
 RUN grep . /etc/apt/sources.list > /etc/apt/sources.list.1 && mv /etc/apt/sources.list.1 /etc/apt/sources.list
 RUN sed -i /etc/apt/sources.list -e 's/$/ non-free'/ 
-RUN apt-get update && apt-get -y upgrade && \
-    rm /etc/apt/preferences.d/no-debian-php 
-RUN "apt-get install -y libcurl4-gnutls-dev"
+RUN apt-get update && apt-get -y upgrade 
+RUN "apt-get install -y libcurl4-gnutls-dev "
+RUN "rm /etc/apt/preferences.d/no-debian-php "
+
 RUN "apt-get install -y libgmp-dev "
 RUN "apt-get install -y libmcrypt-dev "
 RUN "apt-get install -y libpng12-dev "
