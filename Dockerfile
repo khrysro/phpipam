@@ -19,12 +19,18 @@ RUN rm /etc/apt/preferences.d/no-debian-php
 RUN apt-get install -y libgmp-dev 
 RUN apt-get install -y libmcrypt-dev 
 RUN apt-get install -y libpng-dev 
-RUN apt-get install -y libfreetype6-dev
+RUN apt-get install -y libfreetype6-dev libfreetype6-dev libssl-dev
 RUN apt-get install -y libjpeg-dev
-RUN apt-get install -y libpng-dev
+RUN apt-get install -y libpng-dev 
 RUN apt-get install -y libldap2-dev
 RUN apt-get install -y libsnmp-dev
 RUN apt-get install -y snmp-mibs-downloader 
+RUN apt-get install -y libjpeg62-turbo-dev
+RUN apt-get install -y php7.0-gmp
+RUN apt-get install -y libgmp-dev
+
+
+
 RUN rm -rf /var/lib/apt/lists/*
 
 # Create folders required for snmp
