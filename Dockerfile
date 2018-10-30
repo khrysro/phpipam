@@ -1,4 +1,5 @@
-FROM php:7.3-rc-apache-stretch  #7.0.31-zts-stretch
+FROM php:7.3-rc-apache-stretch  
+#7.0.31-zts-stretch
 MAINTAINER KhrysRo
 
 ENV PHPIPAM_SOURCE https://github.com/phpipam/phpipam/
