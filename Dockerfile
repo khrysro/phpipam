@@ -1,4 +1,4 @@
-php5-gmpFROM php:5.6.38-apache
+FROM php:5.6.38-apache
 #7.0.31-zts-stretch
 MAINTAINER KhrysRo
 
