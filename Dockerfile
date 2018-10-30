@@ -1,5 +1,4 @@
-FROM php:5.6-apache
-#7.0.31-zts-stretch
+FROM php:7.0.32-apache-jessie
 MAINTAINER KhrysRo
 
 ENV PHPIPAM_SOURCE https://github.com/phpipam/phpipam/
@@ -27,7 +26,7 @@ RUN apt-get install -y libldap2-dev
 RUN apt-get install -y libsnmp-dev
 RUN apt-get install -y snmp-mibs-downloader 
 RUN apt-get install -y libjpeg62-turbo-dev
-#RUN apt-get install -y php7.0-gmp
+RUN apt-get install -y php7.0-gmp
 #RUN apt-get install -y gmp
 RUN apt-get install -y libgmp-dev
 
