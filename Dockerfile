@@ -28,9 +28,12 @@ RUN apt-get install -y libsnmp-dev
 RUN apt-get install -y snmp-mibs-downloader 
 RUN apt-get install -y libjpeg62-turbo-dev
 #RUN apt-get install -y php7.0-gmp
-RUN apt-get install -y php5-gmp
+#RUN apt-get install -y gmp
 RUN apt-get install -y libgmp-dev
 
+RUN apt-get update && \
+	apt-get install -y git php-pear php5-curl php5-gd php5-mysql php5-json php5-gmp php5-mcrypt php5-ldap libpng-dev libgmp-dev libmcrypt-dev && \
+	rm -rf /var/lib/apt/lists/*
 
 
 RUN rm -rf /var/lib/apt/lists/*
