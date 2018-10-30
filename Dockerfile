@@ -1,4 +1,4 @@
-FROM php:5.6.38-apache
+FROM php:5.6-apache
 #7.0.31-zts-stretch
 MAINTAINER KhrysRo
 
@@ -28,7 +28,7 @@ RUN apt-get install -y libsnmp-dev
 RUN apt-get install -y snmp-mibs-downloader 
 RUN apt-get install -y libjpeg62-turbo-dev
 #RUN apt-get install -y php7.0-gmp
-#RUN apt-get install -y php5-gmp
+RUN apt-get install -y php5-gmp
 RUN apt-get install -y libgmp-dev
 
 
