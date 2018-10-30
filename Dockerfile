@@ -1,4 +1,4 @@
-FROM php:7.3-rc-apache-stretch  
+FROM php:5.6.38-apache
 #7.0.31-zts-stretch
 MAINTAINER KhrysRo
 
