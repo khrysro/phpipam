@@ -27,7 +27,8 @@ RUN apt-get install -y libldap2-dev
 RUN apt-get install -y libsnmp-dev
 RUN apt-get install -y snmp-mibs-downloader 
 RUN apt-get install -y libjpeg62-turbo-dev
-RUN apt-get install -y php7.0-gmp
+#RUN apt-get install -y php7.0-gmp
+RUN apt-get install -y gmp
 RUN apt-get install -y libgmp-dev
 
 
